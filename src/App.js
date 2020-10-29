@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import { Typography } from "@material-ui/core";
+import { Typography, Link } from "@material-ui/core";
 
 import ProjectContainer from "./components/ProjectContainer";
 
@@ -17,9 +17,34 @@ const App = () => {
         </Typography>
       </div>
       <div className="container">
-        <ProjectContainer />
-        <ProjectContainer />
-        <ProjectContainer />
+        <ProjectContainer
+          title="title"
+          img="img/kf.png"
+          desc="desc"
+          tags={[{ lang: "js", color: "#ff0000" }]}
+        />
+      </div>
+      <div className="footer">
+        <div className="footer-container">
+          <Typography variant="body1">
+            <Link href="https://www.robinbranders.be" color="textPrimary">
+              robinbranders.be
+            </Link>
+          </Typography>
+          <Typography variant="body1">
+            <Link
+              href="https://www.linkedin.com/in/robin-branders-b1838a188"
+              color="textPrimary"
+            >
+              @linkedin
+            </Link>
+          </Typography>
+          <Typography variant="body1">
+            <Link href="https://github.com/robranders" color="textPrimary">
+              @github
+            </Link>
+          </Typography>
+        </div>
       </div>
     </>
   );

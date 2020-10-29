@@ -1,28 +1,38 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
+import { Paper, Typography, Button } from "@material-ui/core";
+import {
+  Visibility as VisibilityIcon,
+  GitHub as GitHubIcon
+} from "@material-ui/icons";
 
-const ProjectContainer = () => {
+import LanguageTag from "./LanguageTag";
+
+const ProjectContainer = ({ title, img, desc, demoLink, githubLink, tags }) => {
   return (
     <Paper className="project-paper">
       <div className="project-container">
         <div className="title">
-          <p>Click HMI demo page</p>
+          <Typography variant="h5">{title}</Typography>
+        </div>
+        <div className="image">
+          <img src={img} alt="kf-preview" />
         </div>
         <div className="description">
-          <p>
-            A static product demo web page based around the Click PLC projects
-            I've done in the past.
-          </p>
+          <Typography variant="body1">{desc}</Typography>
         </div>
         <div className="buttons">
-          <button>View</button>
-          <button>Github</button>
+          <Button variant="outlined" startIcon={<VisibilityIcon />}>
+            Demo
+          </Button>
+          <Button variant="outlined" startIcon={<GitHubIcon />}>
+            Source
+          </Button>
         </div>
         <div className="tags">
-          <li>HMTL</li>
-          <li>CSS</li>
+          {tags.map((tag) => (
+            <LanguageTag language={tag.lang} color={tag.color} />
+          ))}
         </div>
-        <div className="image">image</div>
       </div>
     </Paper>
   );
