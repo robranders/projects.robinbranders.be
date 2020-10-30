@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "title": "Click Web HMI demo page",
+      "description": "A static product demo website based around the Click PLC projects I have done in the past.",
+      "img": "img/chmi.png",
+      "demo": "chmi",
+      "github": "https://github.com/robranders/clickHMI/tree/master/demo-page",
+      "tags": ["js", "html", "css", "svg"]
+    },
+    {
+      "title": "Demo Festival Page",
+      "description": "A static webpage to showcase a live event.",
+      "img": "img/kf.png",
+      "demo": "https://robranders.github.io/kotfeesten-public/",
+      "github": "https://github.com/robranders/kotfeesten-public",
+      "tags": ["html", "css"]
+    }
+  ],
+  "langColors": {
+    "html": "#e34c26",
+    "css": "#563d7c",
+    "js": "#f1e05a",
+    "c++": "#f34b7d",
+    "shell": "#89e051",
+    "c#": "#178600",
+    "svg": "#ff9900",
+    "json": "#40d47e",
+    "react": "#61dafb"
+  }
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import { Typography, Link } from "@material-ui/core";
@@ -6,6 +6,21 @@ import { Typography, Link } from "@material-ui/core";
 import ProjectContainer from "./components/ProjectContainer";
 
 const App = () => {
+  const [projects, setProjects] = useState([]);
+  const [langColors, setLangColors] = useState([]);
+
+  useEffect(() => {
+    if (projects.length <= 0) {
+      fetch("projects.json")
+        .then((res) => res.json())
+        .then((res) => {
+          setProjects(res.projects);
+          setLangColors(res.langColors);
+        })
+        .catch((e) => console.error(e.message));
+    }
+  });
+
   return (
     <>
       <div className="header">
@@ -17,12 +32,19 @@ const App = () => {
         </Typography>
       </div>
       <div className="container">
-        <ProjectContainer
-          title="title"
-          img="img/kf.png"
-          desc="desc"
-          tags={[{ lang: "js", color: "#ff0000" }]}
-        />
+        {projects.map((p, index) => {
+          return (
+            <ProjectContainer
+              title={p.title}
+              img={p.img}
+              desc={p.description}
+              demoLink={p.demo}
+              githubLink={p.github}
+              tags={p.tags.map((t) => ({ lang: t, color: langColors[t] }))}
+              key={index}
+            />
+          );
+        })}
       </div>
       <div className="footer">
         <div className="footer-container">

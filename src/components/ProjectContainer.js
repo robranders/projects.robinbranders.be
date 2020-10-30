@@ -21,16 +21,30 @@ const ProjectContainer = ({ title, img, desc, demoLink, githubLink, tags }) => {
           <Typography variant="body1">{desc}</Typography>
         </div>
         <div className="buttons">
-          <Button variant="outlined" startIcon={<VisibilityIcon />}>
+          <Button
+            variant="outlined"
+            startIcon={<VisibilityIcon />}
+            onClick={() => {
+              window.open(demoLink);
+            }}
+            disabled={typeof demoLink === "undefined"}
+          >
             Demo
           </Button>
-          <Button variant="outlined" startIcon={<GitHubIcon />}>
+          <Button
+            variant="outlined"
+            startIcon={<GitHubIcon />}
+            onClick={() => {
+              window.open(githubLink);
+            }}
+            disabled={typeof githubLink === "undefined"}
+          >
             Source
           </Button>
         </div>
         <div className="tags">
-          {tags.map((tag) => (
-            <LanguageTag language={tag.lang} color={tag.color} />
+          {tags.map((tag, index) => (
+            <LanguageTag language={tag.lang} color={tag.color} key={index} />
           ))}
         </div>
       </div>
